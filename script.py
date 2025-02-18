@@ -40,7 +40,6 @@ def sendInsult(email):
 
     
 
-
 # setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
