@@ -21,6 +21,7 @@ def send():
             case 'a': status = script.sendInsult(email)
             case 'b': status = script.sendQuote(email)
             case 'c': status = script.sendFact(email)
+            case 'd': status = script.sendPhoto(email)
         return render_template("thankyou.html")
     else:
         return render_template("index.html", emailInvalid = True)
