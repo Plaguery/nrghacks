@@ -2,14 +2,12 @@ import requests
 from mailjet_rest import Client
 import vars
 
-#gets random insult
 def getInsult():
     x = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     data = x.json()
     insult = data.get("insult")
     return insult
 
-#gets quote
 def getQuote():
     x = requests.get('https://zenquotes.io/api/random')
     data = x.json()
@@ -18,7 +16,15 @@ def getQuote():
         return quote
     return None
 
-#sends email 
+def addMailList(email):
+    data = {
+        'Email': email
+    }
+    result = mailjet.contact.create(data=data)
+    print(result.status_code)
+    print(result.json())
+
+
 def sendEmail(subject, content, email):
     data = {
 	'FromEmail': vars.senderEmail,
@@ -31,15 +37,17 @@ def sendEmail(subject, content, email):
     result = mailjet.send.create(data=data)
     print(result.status_code)
     
-#sends quote
+def getClients():
+    result = mailjet.contact.get()
+    print(result.status_code)
+    print(result.json())
+    return result
+
+def sendInsult(email):
+    sendEmail("INSULT", getInsult(), email)  
+
 def sendQuote(email):
     sendEmail("QUOTE", getQuote(), email)
-
-#sends insult email
-def sendInsult(email):
-    sendEmail("INSULT", getInsult(), email)
-
-
 
 # setups env
 api_key = vars.apiKey
@@ -47,6 +55,7 @@ api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
+sendQuote("sophia.guo.1212@gmail.com")
 
 
 
