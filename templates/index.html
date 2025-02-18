@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css')}}">
     <title>Page Title</title>
     <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
     <title>Oval</title>
@@ -13,15 +13,15 @@
 <h1>This is a Heading</h1>
 <p>This is a paragraph.</p>
 
-<form method="POST" action="{{ url_for('login') }}">
+<form method="POST" action="{{ url_for('send') }}">
     <input type="text" name="email-input" placeholder="Email">
     <br><br>
-    <label for="send">Choose asasadsf:</label>
+    <label for="message-type">Choose asasadsf:</label>
     <br><br>
-    <select name="send" id="send">
-        <option value="a">a</option>
-        <option value="b">b</option>
-        <option value="c">c</option>
+    <select name="message-type" id="send">
+        <option value="a">INSULT</option>
+        <option value="b">QUOTE</option>
+        <option value="c">FUN FACT</option>
         <option value="d">d</option>
     </select>
     <br><br>

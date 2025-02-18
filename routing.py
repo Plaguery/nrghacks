@@ -9,8 +9,14 @@ def home():
 
 @app.route("/send", methods=['POST'])
 def send():
-    #update (currently placeholders)
-    name = request.form["name"]
+    #requests info
     email = request.form["email-input"]
-    # send email here
+    selected = request.form.get("message-type")
+
+    #sends email address
+    match selected:
+        case 'a': script.sendInsult(email)
+        case 'b': script.sendQuote(email)
+    return render_template("thankyou.html")
+
     
