@@ -57,9 +57,6 @@ mailjet = Client(auth=(api_key, api_secret))
 #sendInsult("sophiayan111@gmail.com")
 sendQuote("sophia.guo.1212@gmail.com")
 
-
-
-
 # result = mailjet.send.create(data=data)
 
 
