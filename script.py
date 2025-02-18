@@ -2,7 +2,6 @@ import requests
 from mailjet_rest import Client
 import vars
 
-#gets random insult
 def getInsult():
     x = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     data = x.json()
@@ -38,11 +37,15 @@ def sendEmail(subject, content, email):
     result = mailjet.send.create(data=data)
     print(result.status_code)
     
-#sends insult email
-def sendInsult(email):
-    sendEmail("INSULT", getInsult(), email)
+def getClients():
+    result = mailjet.contact.get()
+    print(result.status_code)
+    print(result.json())
+    return result
 
-#sends quote
+def sendInsult(email):
+    sendEmail("INSULT", getInsult(), email)  
+
 def sendQuote(email):
     sendEmail("QUOTE", getQuote(), email)
 
@@ -52,8 +55,10 @@ api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
-
 sendQuote("sophia.guo.1212@gmail.com")
+
+
+
 
 # result = mailjet.send.create(data=data)
 
