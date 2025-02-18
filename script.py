@@ -2,6 +2,8 @@ import requests
 from mailjet_rest import Client
 import vars
 
+
+
 def getInsult():
     x = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     data = x.json()
@@ -59,8 +61,6 @@ mailjet = Client(auth=(api_key, api_secret))
 
 
 
-
-# result = mailjet.send.create(data=data)
 
 
 
