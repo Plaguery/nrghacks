@@ -9,40 +9,59 @@
     filter: blur(300px);
   }
   
-  
-  
+.rectangle {
+    width: 2008px;
+    height: 130px;
+    background-color: #EFF2F1;
+    margin: 50px auto;
+    transform: translate(-50%, -50%);
+    position: absolute; 
+    top: 98%;
+    left: 50%;
+  }
+
   
   form {
     position: absolute; /* Position the form inside the oval */
-    top: 50%; /* Center vertically inside the oval */
+    top: 60%; /* Center vertically inside the oval */
     left: 50%; /* Center horizontally inside the oval */
     transform: translate(-50%, -50%); /* Adjust for perfect centering */
     text-align: center; /* Optional, to center the form elements */
-    background-color: rgba(255, 255, 255, 0.7); /* Optional background for form */
+    background-color: #EFF2F1; /* Optional background for form */
+    height: 311px;
+    width: 623px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
   }
   
   /* Input and button styles for form */
-  input, button {
-    margin: 5px 0;
+  input, button, select {
+    margin: 5px;
     padding: 10px;
     width: 80%;
     border-radius: 5px;
+    box-sizing: border-box;
   }
   
   button {
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #2c2c2c;
     color: white;
   }
   
   input {
     border: 1px solid #ccc;
-  }
+    padding: 10px;
+    width: 80%;
+ }
+
   
   
-  
+
   
   
   body {
