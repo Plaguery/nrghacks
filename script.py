@@ -38,7 +38,7 @@ api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
-sendInsult("teeresa.zhang@gmail.com")
+#sendInsult("teeresa.zhang@gmail.com")
 
 
 
