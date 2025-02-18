@@ -1,6 +1,7 @@
 import requests
 from mailjet_rest import Client
 import vars
+import base64
 
 def getInsult():
     x = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
@@ -25,6 +26,12 @@ def getFact():
         return fact_list[0]
     return None
 
+def getPhoto():
+    x = requests.get('https://api.thecatapi.com/v1/images/search')
+    data = x.json()
+    image_url = data[0]['url']
+    return image_url
+
 def addMailList(email):
     data = {
         'Email': email
@@ -45,6 +52,18 @@ def sendEmail(subject, content, email):
     }
     result = mailjet.send.create(data=data)
     print(result.status_code)
+
+def sendPhotoEmail(subject, photo_url, email):
+    data = {
+	'FromEmail': vars.senderEmail,
+	'FromName': vars.senderName,
+	'Subject': subject,
+	
+	'Html-part': f'<img src="{photo_url}" alt="alternatetext">',
+	'Recipients': [{'Email': email}]
+    }
+    result = mailjet.send.create(data=data)
+    print(result.status_code)
     
 def getClients():
     result = mailjet.contact.get()
@@ -61,17 +80,16 @@ def sendQuote(email):
 def sendFact(email):
     sendEmail("FACT", getFact(), email)
 
+def sendPhoto(email):
+    sendPhotoEmail("PHOTO", getPhoto(), email)
+    
 # setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
-#sendFact("sophia.guo.1212@gmail.com")
-print(getFact())
-
+sendPhoto("sophia.guo.1212@gmail.com")
+print(getPhoto())
 
 # result = mailjet.send.create(data=data)
-
-
-
