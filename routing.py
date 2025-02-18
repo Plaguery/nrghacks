@@ -17,6 +17,7 @@ def send():
     match selected:
         case 'a': script.sendInsult(email)
         case 'b': script.sendQuote(email)
+        case 'c': script.sendFact(email)
     return render_template("thankyou.html")
 
     

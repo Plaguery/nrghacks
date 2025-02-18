@@ -70,7 +70,7 @@ mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
 #sendFact("sophia.guo.1212@gmail.com")
-print(getFact())
+
 
 
 
