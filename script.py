@@ -1,6 +1,7 @@
 import requests
 from mailjet_rest import Client
 import vars
+
 def getInsult():
     x = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     data = x.json()
@@ -22,9 +23,11 @@ def sendEmail(subject, content, email):
 	'FromName': vars.senderName,
 	'Subject': subject,
 	'Text-part': content,
-	'Html-part': '<h3>Dear passenger, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!<br />May the delivery force be with you!',
+	'Html-part': f'<h3>{content}</h3>',
 	'Recipients': [{'Email': email}]
-}
+    }
+    result = mailjet.send.create(data=data)
+    print(result.status_code)
     
 def getClients():
     result = mailjet.contact.get()
@@ -45,7 +48,6 @@ mailjet = Client(auth=(api_key, api_secret))
 
 sendInsult("sophiayan111@gmail.com")
 
-getClients()
 
 
 
