@@ -16,7 +16,22 @@ def addMailList(email):
     print(result.json())
 
 
-def sendEmail():
+def sendEmail(subject, content, recipients):
+    data = {
+	'FromEmail': vars.senderEmail,
+	'FromName': vars.senderName,
+	'Subject': subject,
+	'Text-part': content,
+	'Html-part': '<h3>Dear passenger, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!<br />May the delivery force be with you!',
+	'Recipients': recipients
+}
+    
+def getClients():
+    result = mailjet.contact.get()
+    print(result.status_code)
+    print(result.json())
+    return result
+
     
 
 
@@ -26,14 +41,7 @@ api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 insult = getInsult()
-data = {
-	'FromEmail': '$SENDER_EMAIL',
-	'FromName': '$SENDER_NAME',
-	'Subject': 'Your email flight plan!',
-	'Text-part': '$insult',
-	'Html-part': '<h3>Dear passenger, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!<br />May the delivery force be with you!',
-	'Recipients': [{'Email': 'sophiayan111@gmail.com'}]
-}
+getClients()
 
 
 
