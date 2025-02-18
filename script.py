@@ -9,7 +9,14 @@ def getInsult():
     insult = data.get("insult")
     return insult
 
-
+#gets quote
+def getQuote():
+    x = requests.get('https://zenquotes.io/api/random')
+    data = x.json()
+    if isinstance(data, list) and len(data) > 0:
+        quote = data[0].get("q")  # Correct key for the quote
+        return quote
+    return None
 
 #sends email 
 def sendEmail(subject, content, email):
@@ -24,7 +31,9 @@ def sendEmail(subject, content, email):
     result = mailjet.send.create(data=data)
     print(result.status_code)
     
-
+#sends quote
+def sendQuote(email):
+    sendEmail("QUOTE", getQuote(), email)
 
 #sends insult email
 def sendInsult(email):
