@@ -36,18 +36,14 @@ def getClients():
     return result
 
 def sendInsult(email):
-    sendEmail("INSULT", getInsult(), email)
-
-    
+    sendEmail("INSULT", getInsult(), email)  
 
 # setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
-sendInsult("sophiayan111@gmail.com")
-
-
+#sendInsult("sophiayan111@gmail.com")
 
 
 
