@@ -39,6 +39,7 @@ form {
 
 /* Input and button styles for form */
 input, button, select {
+
   margin: 5px;
   padding: 10px;
   width: 80%;
@@ -46,10 +47,15 @@ input, button, select {
   box-sizing: border-box;
 }
 
+
 button {
   cursor: pointer;
   background-color: #2c2c2c;
   color: white;
+}
+
+button:hover {
+  background-color: #767676;  /* Lighter shade when hovered */
 }
 
 input {
@@ -74,9 +80,19 @@ h1 {
   text-align: center;
 }
 
+/* CSS Image Class */
+.img {
+  position: absolute;
+  margin: 50px auto;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 50%;
+}
+
+
 p {
   font-family: verdana;
-  color: #ffffff;
+  color: #2c2c2c;
   text-align: center;
   font-size: 20px;
   position: absolute;

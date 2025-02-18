@@ -59,7 +59,7 @@ def sendPhotoEmail(subject, photo_url, email):
 	'FromName': vars.senderName,
 	'Subject': subject,
 	
-	'Html-part': f'<img src="{photo_url}" alt="alternatetext">',
+	'Html-part': f'<img src="{photo_url}" alt="cat.png">',
 	'Recipients': [{'Email': email}]
     }
     result = mailjet.send.create(data=data)
