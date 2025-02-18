@@ -16,6 +16,15 @@ def getQuote():
         return quote
     return None
 
+def getFact():
+    x = requests.get('https://meowfacts.herokuapp.com/')
+    data = x.json()
+    fact_list = data.get("data")  # "data" is a list containing the fact(s)
+    
+    if isinstance(fact_list, list) and len(fact_list) > 0:
+        return fact_list[0]
+    return None
+
 def addMailList(email):
     data = {
         'Email': email
@@ -49,13 +58,18 @@ def sendInsult(email):
 def sendQuote(email):
     sendEmail("QUOTE", getQuote(), email)
 
+def sendFact(email):
+    sendEmail("FACT", getFact(), email)
+
 # setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
-sendQuote("sophia.guo.1212@gmail.com")
+#sendFact("sophia.guo.1212@gmail.com")
+print(getFact())
+
 
 # result = mailjet.send.create(data=data)
 
