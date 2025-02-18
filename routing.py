@@ -9,7 +9,6 @@ def home():
 
 @app.route("/send", methods=['POST'])
 def send():
-
     #requests info
     email = request.form["email-input"]
     selected = request.form.get("message-type")
