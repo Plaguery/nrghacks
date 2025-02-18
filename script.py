@@ -64,6 +64,18 @@ def sendPhotoEmail(subject, photo_url, email):
     }
     result = mailjet.send.create(data=data)
     print(result.status_code)
+
+def sendPhotoEmail(subject, photo_url, email):
+    data = {
+	'FromEmail': vars.senderEmail,
+	'FromName': vars.senderName,
+	'Subject': subject,
+	
+	'Html-part': f'<img src="{photo_url}" alt="alternatetext">',
+	'Recipients': [{'Email': email}]
+    }
+    result = mailjet.send.create(data=data)
+    return result.status_code
     
 def getClients():
     result = mailjet.contact.get()
@@ -72,10 +84,10 @@ def getClients():
     return result
 
 def sendInsult(email):
-    sendEmail("INSULT", getInsult(), email)  
+    return sendEmail("INSULT", getInsult(), email)  
 
 def sendQuote(email):
-    sendEmail("QUOTE", getQuote(), email)
+    return sendEmail("QUOTE", getQuote(), email)
 
 def sendFact(email):
     sendEmail("FACT", getFact(), email)

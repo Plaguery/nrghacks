@@ -1,65 +1,82 @@
-
-
 .oval {
-    width: 2000px;
-    height: 1050px;
-    background: #AFD1F0;
-    margin: 50px auto;
-    border-radius: 50%;
-    transform: translate(0, 50%);
-    filter: blur(300px);
-  }
-  
-  
-  
-  
-  form {
-    position: absolute; /* Position the form inside the oval */
-    top: 50%; /* Center vertically inside the oval */
-    left: 50%; /* Center horizontally inside the oval */
-    transform: translate(-50%, -50%); /* Adjust for perfect centering */
-    text-align: center; /* Optional, to center the form elements */
-    background-color: rgba(255, 255, 255, 0.7); /* Optional background for form */
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  /* Input and button styles for form */
-  input, button {
-    margin: 5px 0;
-    padding: 10px;
-    width: 80%;
-    border-radius: 5px;
-  }
-  
-  button {
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  input {
-    border: 1px solid #ccc;
-  }
-  
-  
-  
-  
-  
-  body {
-    background-color: #97D8C4;
-    width: 200px; height: 100px;
-    overflow: hidden;
-  }
-  
-  h1 {
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  p {
-    font-family: verdana;
-    color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-  }
+  width: 2000px;
+  height: 1050px;
+  background: #AFD1F0;
+  margin: 50px auto;
+  border-radius: 50%;
+  transform: translate(0, 50%);
+  filter: blur(300px);
+}
+
+.rectangle {
+  width: 2008px;
+  height: 130px;
+  background-color: #EFF2F1;
+  margin: 50px auto;
+  transform: translate(-50%, -50%);
+  position: absolute; 
+  top: 98%;
+  left: 50%;
+}
+
+
+form {
+  position: absolute; /* Position the form inside the oval */
+  top: 60%; /* Center vertically inside the oval */
+  left: 50%; /* Center horizontally inside the oval */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+  text-align: center; /* Optional, to center the form elements */
+  background-color: #EFF2F1; /* Optional background for form */
+  height: 311px;
+  width: 623px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+/* Input and button styles for form */
+input, button, select {
+  margin: 5px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 80%;
+}
+
+
+
+
+
+
+body {
+  background-color: #97D8C4;
+  width: 200px; height: 100px;
+  overflow: hidden;
+}
+
+h1 {
+  color: #ffffff;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+}
