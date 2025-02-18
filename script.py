@@ -64,7 +64,7 @@ def sendPhotoEmail(subject, photo_url, email):
     }
     result = mailjet.send.create(data=data)
     print(result.status_code)
-    
+
     
 def getClients():
     result = mailjet.contact.get()
@@ -89,7 +89,5 @@ api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
-#sendInsult("sophiayan111@gmail.com")
+#sendPhoto("sophiayan111@gmail.com")
 
-
-# result = mailjet.send.create(data=data)
