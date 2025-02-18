@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, session
 from email_validator import EmailNotValidError, validate_email
+#pip install email-validator
 import script
 app = Flask(__name__)
-status = 0
+
 
 @app.route("/")
 def home():
@@ -13,9 +14,10 @@ def home():
 def send():
     #requests info
     email = request.form["email-input"]
-
+    status = 0
     if(validate(email)):
         selected = request.form.get("message-type")
+        
         #sends email address
         match selected:
             case 'a': status = script.sendInsult(email)
