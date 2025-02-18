@@ -11,6 +11,6 @@ def home():
 def send():
     #update (currently placeholders)
     name = request.form["name"]
-    email = request.form["email"]
+    email = request.form["email-input"]
     # send email here
     
