@@ -46,7 +46,7 @@ def sendEmail(subject, content, email):
 	'Recipients': [{'Email': email}]
     }
     result = mailjet.send.create(data=data)
-    print(result.status_code)
+    return result.status_code
     
 def getClients():
     result = mailjet.contact.get()
@@ -55,13 +55,13 @@ def getClients():
     return result
 
 def sendInsult(email):
-    sendEmail("INSULT", getInsult(), email)  
+    return sendEmail("INSULT", getInsult(), email)  
 
 def sendQuote(email):
-    sendEmail("QUOTE", getQuote(), email)
+    return sendEmail("QUOTE", getQuote(), email)
 
 def sendFact(email):
-    sendEmail("FACT", getFact(), email)
+    return sendEmail("FACT", getFact(), email)
 
 # setups env
 api_key = vars.apiKey
