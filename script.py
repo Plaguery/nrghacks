@@ -39,7 +39,6 @@ def sendQuote(email):
 def sendInsult(email):
     sendEmail("INSULT", getInsult(), email)
 
-    
 
 
 # setups env
@@ -47,20 +46,12 @@ api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
-#sendInsult("teeresa.zhang@gmail.com")
+#sendInsult("sophiayan111@gmail.com")
 
 
 
-def getClients():
-    result = mailjet.contact.get()
-    print(result.status_code)
-    print(result.json())
-    return result
 
-def addMailList(email):
-    data = {
-        'Email': email
-    }
-    result = mailjet.contact.create(data=data)
-    print(result.status_code)
-    print(result.json())
+# result = mailjet.send.create(data=data)
+
+
+
