@@ -16,7 +16,6 @@ def addMailList(email):
     print(result.json())
 
 
-#def sendEmail():
     
 
 
