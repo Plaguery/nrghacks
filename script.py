@@ -16,14 +16,14 @@ def addMailList(email):
     print(result.json())
 
 
-def sendEmail(subject, content, recipients):
+def sendEmail(subject, content, email):
     data = {
 	'FromEmail': vars.senderEmail,
 	'FromName': vars.senderName,
 	'Subject': subject,
 	'Text-part': content,
 	'Html-part': '<h3>Dear passenger, welcome to <a href=\"https://www.mailjet.com/\">Mailjet</a>!<br />May the delivery force be with you!',
-	'Recipients': recipients
+	'Recipients': [{'Email': email}]
 }
     
 def getClients():
@@ -32,15 +32,19 @@ def getClients():
     print(result.json())
     return result
 
+def sendInsult(email):
+    sendEmail("INSULT", getInsult(), email)
+
     
 
 
-# Get your environment Mailjet keys
+# setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
-insult = getInsult()
+sendInsult("sophiayan111@gmail.com")
+
 getClients()
 
 
