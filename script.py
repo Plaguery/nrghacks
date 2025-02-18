@@ -8,6 +8,14 @@ def getInsult():
     insult = data.get("insult")
     return insult
 
+def getQuote():
+    x = requests.get('https://zenquotes.io/api/random')
+    data = x.json()
+    if isinstance(data, list) and len(data) > 0:
+        quote = data[0].get("q")  # Correct key for the quote
+        return quote
+    return None
+
 def addMailList(email):
     data = {
         'Email': email
@@ -38,12 +46,16 @@ def getClients():
 def sendInsult(email):
     sendEmail("INSULT", getInsult(), email)  
 
+def sendQuote(email):
+    sendEmail("QUOTE", getQuote(), email)
+
 # setups env
 api_key = vars.apiKey
 api_secret = vars.secretKey
 mailjet = Client(auth=(api_key, api_secret))
 
 #sendInsult("sophiayan111@gmail.com")
+sendQuote("sophia.guo.1212@gmail.com")
 
 
 
